@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar, NavLink, Button } from "react-bootstrap";
 
 const Navigation = () => {
   return (
@@ -10,11 +10,14 @@ const Navigation = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <Nav.Link href="#pricing">Singin</Nav.Link>
-              <Nav.Link href="#pricing">Singup</Nav.Link>
+              <NavLink href="">Home</NavLink>
+              <Nav.Link href="">Features</Nav.Link>
+              <Nav.Link href="">Pricing</Nav.Link>
+              <Nav.Link to="/login">
+                <Button>Singin</Button>
+              </Nav.Link>
+
+              <NavLink to="/register">Singup</NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
