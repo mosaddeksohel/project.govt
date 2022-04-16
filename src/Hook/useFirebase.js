@@ -19,12 +19,12 @@ const useFirebase = () => {
   const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
-  const registerUser = (email, password, name, location, history) => {
+  const registerUser = (email, password, name, roll, location, history) => {
     setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, email, password, roll)
       .then((userCredential) => {
         setError("");
-        const newUser = { email, displayName: name };
+        const newUser = { email, displayName: name, roll };
 
         setUser(newUser);
         /* saveUser(email, name); */
@@ -70,10 +70,10 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`/users/${user?.email}`)
+    fetch(`upzonline.e71solution.xyz/api/adminRegister${user?.roll}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
-  }, [user.email]);
+  }, [user.roll]);
 
   const Logout = () => {
     signOut(auth)
@@ -88,7 +88,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName) => {
     const user = { email, displayName };
-    fetch("/users", {
+    fetch("upzonline.e71solution.xyz/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
