@@ -1,7 +1,13 @@
+import { Box } from "@mui/system";
+import { Button } from "bootstrap";
 import React from "react";
 import { Container, Nav, Navbar, NavLink } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import useAuth from "../../../Hook/useAuth";
 
 const Navigation = () => {
+  const { user } = useAuth();
+
   return (
     <div>
       <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
@@ -11,11 +17,16 @@ const Navigation = () => {
           <Navbar.Collapse className="justify-content-end">
             <Nav className="me-auto">
               <NavLink href="">Home</NavLink>
-              <Nav.Link href="">Features</Nav.Link>
-              <Nav.Link href="">Pricing</Nav.Link>
-              <Nav.Link to="/login">Singin</Nav.Link>
+              <NavLink>
+                <Link to="/information">Active Status</Link>
+              </NavLink>
+              <Nav.Link>
+                <Link to="/login">Singin</Link>
+              </Nav.Link>
 
-              <NavLink to="/register">Singup</NavLink>
+              <NavLink>
+                <Link to="/register">Singup</Link>
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Slide from "./Slide";
 
 const Banner = () => {
   const [banner, setBanner] = useState({});
@@ -7,7 +8,12 @@ const Banner = () => {
       .then((res) => res.json())
       .then((data) => setBanner(data));
   }, []);
-  return <div>{}</div>;
-};
+  return <div>{banner.map(bnr=><Slide
+  bnr={bnr}
+  >
+
+
+  </Slide>)}
+  </div>;
 
 export default Banner;
