@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+/* import { Box } from "@mui/system";
 import React from "react";
 import firebase from "./firebase";
 import useAuth from "../../Hook/useAuth";
@@ -30,3 +30,4 @@ const Information = () => {
 };
 
 export default Information;
+ */

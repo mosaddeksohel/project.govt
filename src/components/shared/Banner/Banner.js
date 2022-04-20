@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import Slide from "./Slide";
 
 const Banner = () => {
-  const [banner, setBanner] = useState({});
+  const [bannerSlide, setBanner] = useState([]);
   useEffect(() => {
     fetch("upzonline.e71solution.xyz/banner")
       .then((res) => res.json())
       .then((data) => setBanner(data));
   }, []);
-  return <div>{banner.map(bnr=><Slide
-  bnr={bnr}
-  >
-
-
-  </Slide>)}
-  </div>;
+  return (
+    <div>
+      {bannerSlide.map((banner) => (
+        <Slide banner={banner}></Slide>
+      ))}
+    </div>
+  );
+};
 
 export default Banner;
