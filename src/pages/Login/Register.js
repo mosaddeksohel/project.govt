@@ -1,115 +1,193 @@
-import { TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
-import { Alert, Button, Spinner } from "react-bootstrap";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../Hook/useAuth";
+import React, { useState } from 'react';
+import { Container, Grid, TextField, Typography, Button, FormControl, InputLabel, NativeSelect } from '@mui/material';
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const Register = () => {
-  const [loginData, setLoginData] = useState({});
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const { registerUser, error, isLoading } = useAuth();
+  const onSubmit = data => {
+    const newData = {
+      district_id: Number(data.district_id),
+      upazilla_id: Number(data.upazilla_id),
+      union_id: Number(data.union_id),
+      name: data.name,
+      email: data.email,
+      phone: Number(data.phone),
+      nid_no: Number(data.nid_no),
+      date_of_birth: data.date_of_birth,
+      address: data.address,
+      gender: data.gender,
+      password: data.password,
+      roll: Number(data.roll)
+    }
 
-  const location = useLocation();
-  const history = useNavigate();
-  const handleOnBlur = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newLoginData = { ...loginData };
-    newLoginData[field] = value;
-    console.log(value);
-    setLoginData(newLoginData);
+    axios.post('upzonline.e71solution.xyz/api/adminRegister', newData)
+      .then((response) => {
+        if (response.status === 200) {
+          alert('Register Successfully')
+        }
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('Bad requested,please try again')
+      });
+    console.log(newData)
   };
-
-  const handleLogin = (e) => {
-    registerUser(
-      loginData.email,
-      loginData.password,
-      loginData.name,
-      location,
-      history
-    );
-    e.preventDefault();
-  };
-
   return (
-    <div style={{ marginTop: "50px" }}>
-      <Typography variant="h5" gutterBottom component="div">
-        Please Register
+    <Container>
+      <Typography
+        variant='h5'
+        sx={{ py: 5 }}
+      >
+        Register
       </Typography>
-      {!isLoading && (
-        <form onSubmit={handleLogin}>
-          <TextField
-            sx={{ width: "50%", m: 1 }}
-            name="name"
-            onBlur={handleOnBlur}
-            id="standard-basic"
-            label=" Your Name"
-            variant="standard"
-          />
-          <br />
-          <TextField
-            sx={{ width: "50%", m: 1 }}
-            name="email"
-            type="email"
-            onBlur={handleOnBlur}
-            id="standard-basic"
-            label=" Your Email"
-            variant="standard"
-          />
-          <br />
-          <TextField
-            sx={{ width: "50%", m: 1 }}
-            id="standard-password-input"
-            onBlur={handleOnBlur}
-            label="Password"
-            name="password"
-            type="password"
-            autoComplete="current-password"
-            variant="standard"
-          />
-          <br />
-          <Button
-            style={{
-              backgroundColor: "goldenrod",
-              width: "25%",
-              marginBottom: 7,
-            }}
-            type="submit"
-            variant="contained"
-          >
-            Register
-          </Button>
-          <Typography
-            variant="p"
-            gutterBottom
-            component="div"
-            sx={{ textAlign: "center" }}
-          >
-            Already Registered? Please
-            <Link to="/login">
-              <Button
-                style={{ backgroundColor: "skyblue" }}
-                variant="contained"
-              >
-                Login
-              </Button>
-            </Link>
-          </Typography>
-        </form>
-      )}
-      {isLoading && (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      )}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}>
 
-      {error &&
-        ["danger"].map((variant, idx) => (
-          <Alert className="mx-auto w-50" key={idx} variant={variant}>
-            {error}{" "}
-          </Alert>
-        ))}
-    </div>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="District ID"
+              variant="filled"
+              type='number'
+              fullWidth
+              {...register("district_id")}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Upazilla ID"
+              variant="filled"
+              type='number'
+              fullWidth
+              {...register("upazilla_id")}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Union ID"
+              variant="filled"
+              type='number'
+              fullWidth
+              {...register("union_id")}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={8} >
+            <TextField
+              id="filled-basic"
+              label="Full Name"
+              variant="filled"
+              fullWidth
+              {...register("name", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Email"
+              type='email'
+              variant="filled"
+              fullWidth
+              {...register("email", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Phone"
+              variant="filled"
+              type='number'
+              fullWidth
+              {...register("phone", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="NID No"
+              variant="filled"
+              type='number'
+              fullWidth
+              {...register("nid_no", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Date of Birth"
+              variant="filled"
+              type='date'
+              fullWidth
+              {...register("date_of_birth", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={8} >
+            <TextField
+              id="filled-basic"
+              label="Address"
+              variant="filled"
+              fullWidth
+              {...register("address", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <FormControl fullWidth>
+              <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                Gender
+              </InputLabel>
+              <NativeSelect
+                {...register("gender", { required: true })}
+                inputProps={{
+                  name: 'gender',
+                  id: 'uncontrolled-native',
+                }}
+              >
+                <option value='female'>Female </option>
+                <option value='mail'>Mail</option>
+                <option value='other'>Other</option>
+              </NativeSelect>
+            </FormControl>
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Roll"
+              variant="filled"
+              type='number'
+              fullWidth
+              {...register("roll", { required: true })}
+            />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} >
+            <TextField
+              id="filled-basic"
+              label="Password"
+              variant="filled"
+              type='password'
+              fullWidth
+              {...register("password", { required: true })}
+            />
+          </Grid>
+
+          <Grid item xs={4} sm={2} md={2} >
+            <Button
+              fullWidth
+              variant="contained"
+              color="success"
+              type='submit'
+            >Submit</Button>
+          </Grid>
+
+        </Grid>
+      </form>
+    </Container>
   );
 };
 
