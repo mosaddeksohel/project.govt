@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "baseUrl": "src/dashboard",
-    "paths": {
-      "*": ["src/dashboard/*"],
-      "assets": ["src/dashboard/assets"]
-    }
-  }
-}
