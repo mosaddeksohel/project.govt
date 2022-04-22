@@ -10,12 +10,12 @@ import img4 from "../../../Images/death.png";
 import img6 from "../../../Images/fighter.png";
 import img7 from "../../../Images/income.png";
 import img8 from "../../../Images/marrid.png";
-import "../../../Images/monthly-income.png";
-import "../../../Images/Nationality.svg";
-import "../../../Images/new votar.svg";
-import "../../../Images/protoyon.svg";
-import "../../../Images/unemployed.png";
-import "../../../Images/unmarried.svg";
+import img5 from "../../../Images/monthly-income.png";
+import img10 from "../../../Images/Nationality.svg";
+import img11 from "../../../Images/new votar.svg";
+import img12 from "../../../Images/protoyon.svg";
+import img13 from "../../../Images/unemployed.png";
+import img9 from "../../../Images/unmarried.svg";
 import "../../../Images/upojati.png";
 import "../../../Images/uttaradhikar.svg";
 import "../../../Images/Vumihin.png";
@@ -38,13 +38,22 @@ const Certificate = () => {
       >
         <Grid item xs={2} sm={4} md={4}>
           <Item>
-            <img src={img1} alt="" srcset="" />
+            <div>
+              <img src={img1} alt="" srcset="" />
+              <h4>পুনরায় বিবাহের সনদ</h4>
+            </div>
             <img src={img2} alt="" srcset="" />
             <img src={img3} alt="" srcset="" />
             <img src={img4} alt="" srcset="" />
             <img src={img6} alt="" srcset="" />
             <img src={img7} alt="" srcset="" />
+            <img src={img5} alt="" srcset="" />
             <img src={img8} alt="" srcset="" />
+            <img src={img9} alt="" srcset="" />
+            <img src={img10} alt="" srcset="" />
+            <img src={img11} alt="" srcset="" />
+            <img src={img12} alt="" srcset="" />
+            <img src={img13} alt="" srcset="" />
           </Item>
         </Grid>
       </Grid>
