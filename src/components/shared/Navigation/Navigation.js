@@ -20,6 +20,9 @@ const Navigation = () => {
               <NavLink>
                 <Link to="/information">Active Status</Link>
               </NavLink>
+              <NavLink>
+                <Link to="/dashboard">Dashboard</Link>
+              </NavLink>
               <Nav.Link>
                 <Link to="/login">Singin</Link>
               </Nav.Link>
