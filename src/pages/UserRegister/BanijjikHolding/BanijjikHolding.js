@@ -1,42 +1,14 @@
 import React from 'react';
 import { Container, Grid, TextField, Typography, Button, FormControl, InputLabel, NativeSelect } from '@mui/material';
 import { useForm } from "react-hook-form";
-import axios from 'axios';
 
-const Register = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+const BanijjikHolding = () => {
 
-  const onSubmit = data => {
-    const newData = {
-      district_id:data.district_id,
-      upazilla_id: data.upazilla_id,
-      union_id:data.union_id,
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      nid_no: data.nid_no,
-      date_of_birth: data.date_of_birth,
-      address: data.address,
-      gender: data.gender,
-      password: data.password,
-      roll: data.roll
-    }
-
-    axios.post('https://upzonline.e71solution.xyz/api/adminRegister', newData)
-      .then((response) => {
-        if (response.status === 200) {
-          alert('Register Successfully')
-        }
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert('Bad requested,please try again')
-      });
-    console.log(newData)
-  };
-  return (
-    <Container>
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+        return (
+        <div>
+           <Container>
       <Typography
         variant='h5'
         sx={{ py: 5 }}
@@ -188,7 +160,8 @@ const Register = () => {
         </Grid>
       </form>
     </Container>
-  );
+        </div>
+    );
 };
 
-export default Register;
+export default BanijjikHolding;
