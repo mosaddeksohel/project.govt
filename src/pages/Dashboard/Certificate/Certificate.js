@@ -36,24 +36,124 @@ const Certificate = () => {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        <Grid item xs={2} sm={4} md={4}>
+        <Grid item xs={4} sm={4} md={4}>
           <Item>
             <div>
-              <img src={img1} alt="" srcset="" />
+              <img
+                src={img1}
+                style={{ height: "120px", width: "120px", padding: "10px" }}
+                alt=""
+                srcset=""
+              />
               <h4>পুনরায় বিবাহের সনদ</h4>
             </div>
-            <img src={img2} alt="" srcset="" />
-            <img src={img3} alt="" srcset="" />
-            <img src={img4} alt="" srcset="" />
-            <img src={img6} alt="" srcset="" />
-            <img src={img7} alt="" srcset="" />
-            <img src={img5} alt="" srcset="" />
-            <img src={img8} alt="" srcset="" />
-            <img src={img9} alt="" srcset="" />
-            <img src={img10} alt="" srcset="" />
-            <img src={img11} alt="" srcset="" />
-            <img src={img12} alt="" srcset="" />
-            <img src={img13} alt="" srcset="" />
+          </Item>
+          <Item>
+            <div>
+              <img
+                src={img2}
+                alt=""
+                style={{ height: "120px", width: "120px", padding: "10px" }}
+                srcset=""
+              />
+              <h4>এতিম সনদ</h4>
+            </div>
+          </Item>
+          <Item>
+            <img
+              src={img3}
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              alt=""
+              srcset=""
+            />
+            <h4>চারিত্রিক সনদ</h4>
+          </Item>
+          <Item>
+            <img
+              src={img4}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+            <h4>মৃত্যু সনদ</h4>
+          </Item>
+
+          <Item>
+            <img
+              src={img5}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+            <h4>মাসিক আয় সনদ</h4>
+          </Item>
+          <Item>
+            <img
+              src={img6}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+            <h4>মুক্তিযোদ্ধা সনদ</h4>
+          </Item>
+          <Item>
+            <img
+              src={img7}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+            <h4>বাৎসরিক আয় সনদ</h4>
+          </Item>
+          <Item>
+            <img
+              src={img8}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+            <h4>বৈবাহিক সনদ</h4>
+          </Item>
+          <Item>
+            <img
+              src={img9}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+            <h4>অবিবাহিত সনদ</h4>
+          </Item>
+          <Item>
+            <img
+              src={img10}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+          </Item>
+          <Item>
+            <img
+              src={img11}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+          </Item>
+          <Item>
+            <img
+              src={img12}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
+          </Item>
+          <Item>
+            <img
+              src={img13}
+              alt=""
+              style={{ height: "120px", width: "120px", padding: "10px" }}
+              srcset=""
+            />
           </Item>
         </Grid>
       </Grid>
